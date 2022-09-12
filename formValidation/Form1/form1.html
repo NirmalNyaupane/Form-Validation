@@ -1,0 +1,71 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        label {
+            display: block;
+        }
+
+        input {
+            display: block;
+            margin: 3px 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="/niraml.php" onsubmit="return validate()">
+        <div>
+            <label for="name">User Name</label>
+            <input type="text" id="name">
+        </div>
+
+        <div>
+            <label for="pass">Password</label>
+            <input type="password" id="pass">
+        </div>
+
+        <div>
+            <label for="confirm">Confirm password</label>
+            <input type="password" id="confirm">
+        </div>
+        <input type="submit">
+    </form>
+
+    <script>
+        var userName = document.getElementById("name");
+        var password = document.getElementById("pass");
+        var conPass = document.getElementById("confirm");
+        function validate() {
+            var userNameVal = userName.value;
+            var passwordVal = password.value;
+            var conPassVal = conPass.value;
+
+            if(userNameVal.length<4){
+                alert("Length of user Name should be equal to 4");
+                return false;
+            }
+
+            if(passwordVal.length<6){
+                alert("Length of password should be equal to 6");
+                return false;
+            }
+
+            if(conPassVal==""){
+                alert("Confirm Password is required");
+                return false;
+            }
+
+            if(passwordVal!=conPassVal){
+                alert("Password doesnot match");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</body>
+</html>
